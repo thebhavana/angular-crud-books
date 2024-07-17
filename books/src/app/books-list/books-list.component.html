@@ -1,0 +1,43 @@
+ <div class="header">
+    <mat-toolbar color="primary">
+      <span>Book Management</span>&nbsp;&nbsp;
+      <span class="spacer"></span>
+      <br><button mat-raised-button color="accent" routerLink="/books/add">Add Book</button>
+    </mat-toolbar>
+  </div>
+  <br>
+  
+  <div *ngIf="books.length > 0; else noBooks">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Publication Date</th>
+          <th>Publisher</th>
+          <th>Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.isbn }}</td>
+          <td>{{ book.publicationdate | date }}</td>
+          <td>{{ book.publisher }}</td>
+          <td>{{ book.price }}</td>
+          <td>
+            <button (click)="editBook(book)">Edit</button>
+            <button (click)="deleteBook(book)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <ng-template #noBooks>
+    <p>No books available.</p>
+  </ng-template>
+  

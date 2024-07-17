@@ -1,0 +1,53 @@
+<div class="header">
+    <mat-toolbar color="primary">
+      <span>Book Management</span>&nbsp;&nbsp;
+      <span class="spacer"></span>
+      <br><button mat-raised-button color="accent" routerLink="/books/add">Add Book</button>
+    </mat-toolbar>
+  </div>
+  
+  <form [formGroup]="bookForm" (ngSubmit)="updateBookDetails()">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" placeholder="Book Title" formControlName="title" required>
+      <div *ngIf="bookForm.get('title')?.invalid && (bookForm.get('title')?.dirty || bookForm.get('title')?.touched)">
+        <div *ngIf="bookForm.get('title')?.errors?.['required']">Title is required.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="author">Author:</label>
+      <input type="text" id="author" placeholder="Book Author" formControlName="author" required>
+      <div *ngIf="bookForm.get('author')?.invalid && (bookForm.get('author')?.dirty || bookForm.get('author')?.touched)">
+        <div *ngIf="bookForm.get('author')?.errors?.['required']">Author is required.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" placeholder="Book ISBN" formControlName="isbn" required>
+      <div *ngIf="bookForm.get('isbn')?.invalid && (bookForm.get('isbn')?.dirty || bookForm.get('isbn')?.touched)">
+        <div *ngIf="bookForm.get('isbn')?.errors?.['required']">ISBN is required.</div>
+      </div>
+    </div>
+  
+    <div>
+      <label for="publicationdate">Publication Date:</label>
+      <input type="date" id="publicationdate" placeholder="Publication Date" formControlName="publicationdate">
+    </div>
+  
+    <div>
+      <label for="publisher">Publisher:</label>
+      <input type="text" id="publisher" placeholder="Book Publisher" formControlName="publisher">
+    </div>
+  
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" id="price" placeholder="Book Price" formControlName="price">
+    </div>
+  
+    <div class="submit">
+      <button type="submit">Update Book</button>
+    </div>
+  </form>
+  
