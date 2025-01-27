@@ -16,5 +16,5 @@ To start angular application :npm run start
 
 ### TO CONNECT DATABASE MONGODB
 
-* Ceate a collection and connect to locahost or that particular connection. 
+* Ceate a collection and connect to localhost or that particular connection. 
 * If the connection doesn't work => Start the service of mongodb shell by searching services in searchbar. 
